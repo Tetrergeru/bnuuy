@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dqxh3bfqnd32l"]
+
+[ext_resource type="Shader" path="res://materials/land.gdshader" id="1_b6fty"]
+[ext_resource type="Texture2D" uid="uid://b31pkab8lgkwl" path="res://textures/land_mask.png" id="2_6qeuj"]
+[ext_resource type="Texture2D" uid="uid://c8v8sj22jlrxn" path="res://textures/grass_1.png" id="3_ckgqg"]
+[ext_resource type="Texture2D" uid="uid://cban5c7rt5ws0" path="res://textures/grass_2.png" id="4_nxxvi"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_b6fty")
+shader_parameter/grass_tint_1 = Color(0, 0.382375, 2.88785e-07, 1)
+shader_parameter/grass_tint_2 = Color(0, 0, 0, 1)
+shader_parameter/dirt_tint_1 = Color(0.820466, 0.426403, 0.166626, 1)
+shader_parameter/grass_cutoff = 0.831
+shader_parameter/control_texture = ExtResource("2_6qeuj")
+shader_parameter/grass_texture_1 = ExtResource("3_ckgqg")
+shader_parameter/grass_texture_2 = ExtResource("4_nxxvi")

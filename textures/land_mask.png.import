@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ga4ui55ckux3"
-path.s3tc="res://.godot/imported/stuff_stuff.png-669acf8c57f05bce2ea34c32b9fe75fc.s3tc.ctex"
+uid="uid://b31pkab8lgkwl"
+path.s3tc="res://.godot/imported/land_mask.png-4d7eabad5ce0f675ceb3350f2aa52b68.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "0f589cf29ac5e447492713eb7a396df3"
-}
 
 [deps]
 
-source_file="res://models/stuff_stuff.png"
-dest_files=["res://.godot/imported/stuff_stuff.png-669acf8c57f05bce2ea34c32b9fe75fc.s3tc.ctex"]
+source_file="res://textures/land_mask.png"
+dest_files=["res://.godot/imported/land_mask.png-4d7eabad5ce0f675ceb3350f2aa52b68.s3tc.ctex"]
 
 [params]
 

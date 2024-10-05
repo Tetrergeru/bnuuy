@@ -1,15 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh8pch3imi0ak"]
+[gd_scene load_steps=9 format=3 uid="uid://bh8pch3imi0ak"]
 
-[ext_resource type="PackedScene" uid="uid://dr2jq77wp8ie0" path="res://models/bnuuy.glb" id="1_4do0s"]
-[ext_resource type="PackedScene" uid="uid://dkq7080t1t5y5" path="res://models/sdiper.glb" id="2_27wuw"]
-[ext_resource type="PackedScene" uid="uid://dg111mi2bvbsh" path="res://models/stuff.glb" id="3_vudiv"]
+[ext_resource type="PackedScene" uid="uid://cbcipbwfioql7" path="res://prefabs/landscape.tscn" id="4_jcnyd"]
+[ext_resource type="Shader" path="res://materials/land.gdshader" id="5_6sm1c"]
+[ext_resource type="PackedScene" uid="uid://bp2bdgfikb3d7" path="res://prefabs/player.tscn" id="6_k71cb"]
+[ext_resource type="Texture2D" uid="uid://b31pkab8lgkwl" path="res://textures/land_mask.png" id="6_mydt6"]
+[ext_resource type="Texture2D" uid="uid://c8v8sj22jlrxn" path="res://textures/grass_1.png" id="7_j4rvh"]
+[ext_resource type="Texture2D" uid="uid://cban5c7rt5ws0" path="res://textures/grass_2.png" id="8_ac4j8"]
+
+[sub_resource type="Environment" id="Environment_x7lg8"]
+background_energy_multiplier = 2.0
+ambient_light_color = Color(0.76662, 0.76662, 0.76662, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqymw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_6sm1c")
+shader_parameter/grass_tint_1 = Color(0, 0.382375, 2.88785e-07, 1)
+shader_parameter/grass_tint_2 = Color(0, 0, 0, 1)
+shader_parameter/dirt_tint_1 = Color(0.820466, 0.426403, 0.166626, 1)
+shader_parameter/grass_cutoff = 0.831
+shader_parameter/control_texture = ExtResource("6_mydt6")
+shader_parameter/grass_texture_1 = ExtResource("7_j4rvh")
+shader_parameter/grass_texture_2 = ExtResource("8_ac4j8")
 
 [node name="Main" type="Node3D"]
 
-[node name="bnuuy" parent="." instance=ExtResource("1_4do0s")]
+[node name="Player" parent="." instance=ExtResource("6_k71cb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.290528, 13.6261, -3.89302)
 
-[node name="sdiper" parent="." instance=ExtResource("2_27wuw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11429, 0, 0.110965)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x7lg8")
 
-[node name="stuff" parent="." instance=ExtResource("3_vudiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68963, 0, 2.25779)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.916398, 0.400269, 0, -0.400269, 0.916398, 0, 0, 0)
+light_energy = 10.0
+shadow_enabled = true
+shadow_opacity = 0.88
+
+[node name="Grid" parent="." instance=ExtResource("4_jcnyd")]
+surface_material_override/0 = SubResource("ShaderMaterial_fqymw")
