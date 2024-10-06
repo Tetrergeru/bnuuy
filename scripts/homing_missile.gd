@@ -9,6 +9,7 @@ var expolosion = preload("res://prefabs/homing_explosion.tscn")
 
 @onready var max_angle =  max_angle_degrees * PI / 180
 @onready var mesh: Node3D = $Missile2/MeshInstance3D
+@onready var shape: Node3D = $CollisionShape3D
 
 var player: PlayerController
 var disabled = false
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		mesh.queue_free()
 		disabled = true
 		self.collision_mask = 0
+		shape.queue_free()
 		var instance: Node3D = expolosion.instantiate()
 		instance.global_transform = global_transform
 		get_parent().add_child(instance)

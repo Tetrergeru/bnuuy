@@ -26,11 +26,17 @@ var is_jumping = true
 @export var fire_timeout = 0.2
 var fire_timer: float = 0
 
+@export var restart_position: Node3D
+
 func _ready() -> void:
 	update_hearts()
 
 func _process(delta: float) -> void:
 	fire_timer = max(fire_timer - delta, 0)
+	
+	if global_position.y < -5:
+		self.global_transform = restart_position.global_transform
+	
 	if Input.is_action_just_pressed("Esc"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.is_action_pressed("fire") && fire_timer <= 0:

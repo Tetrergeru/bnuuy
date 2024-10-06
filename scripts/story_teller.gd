@@ -11,6 +11,12 @@ var waves = [
 	[0, 1, 2, 0, 1, 2, 0, 1, 0, 1, 0, 1, 1, 2],
 ]
 
+#var waves = [
+	#[0],
+	#[0],
+	#[0], 
+#]
+
 @export var cooldown: float = 2.2
 @export var total_sdipers: int = 10
 
@@ -27,7 +33,7 @@ var waves = [
 var lines_text : Array[String] = [
 	"Private Bnuuy, you are deployed aganst evil sdipers! You must overcome three waves of them.",
 	"Great job, private Bnuuy! Only two waves to go.",
-	"Your skills are unmatched, private Bnuuy, but the final wave is by far the stronges.",
+	"Your skills are unmatched, private Bnuuy, but the final wave is by far the strongest one.",
 	"Unbelivable! Bnuuy, you did it! Our team is forever grateful, come back to the base for your carrot pie.",
 	"Don't lose your heart, Bnuuy. We will resore your cyber body and you may try again.",
 ]
@@ -72,6 +78,7 @@ func all_waves():
 	await get_tree().create_timer(3).timeout
 	await wave(2)
 	await play_audio(3)
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func wave(wave_idx: int):
 	for sdiper in waves[wave_idx]:

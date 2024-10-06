@@ -48,3 +48,4 @@ stream = ExtResource("3_ojdmg")
 volume_db = -10.0
 autoplay = true
 panning_strength = 0.3
+bus = &"SFX"

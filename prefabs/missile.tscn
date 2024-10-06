@@ -100,3 +100,4 @@ hue_variation_max = 0.1
 stream = ExtResource("4_b7k2d")
 autoplay = true
 panning_strength = 0.2
+bus = &"SFX"

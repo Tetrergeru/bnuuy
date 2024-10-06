@@ -56,3 +56,4 @@ shape = SubResource("SphereShape3D_5nj8r")
 stream = ExtResource("3_yxli4")
 autoplay = true
 panning_strength = 0.3
+bus = &"SFX"

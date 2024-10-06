@@ -68,3 +68,4 @@ skeleton = NodePath("../..")
 stream = ExtResource("2_f8ier")
 autoplay = true
 panning_strength = 0.3
+bus = &"SFX"
