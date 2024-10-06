@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bma8lbjgm2ohd"]
+
+[ext_resource type="Script" path="res://scripts/homing_missile.gd" id="1_a5gm6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xtyd"]
+radius = 0.199365
+height = 0.39873
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_baq38"]
+albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g42q2"]
+material = SubResource("StandardMaterial3D_baq38")
+radius = 0.05
+height = 0.1
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_dugqs"]
+_data = [Vector2(0.0272109, 0.351648), 0.0, 0.0, 0, 0, Vector2(0.142857, 1), 0.0, 0.0, 0, 0, Vector2(0.666667, 1), 0.0, 0.0, 0, 0, Vector2(0.938776, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6qyx"]
+albedo_color = Color(0.274013, 0, 0.0174894, 1)
+emission_enabled = true
+emission = Color(0.605674, 5.41471e-07, 2.40654e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8h75e"]
+material = SubResource("StandardMaterial3D_i6qyx")
+radius = 0.2
+height = 0.4
+radial_segments = 8
+rings = 4
+
+[node name="HomingMissile" type="RigidBody3D"]
+collision_mask = 3
+gravity_scale = 0.0
+script = ExtResource("1_a5gm6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -0.00653765, -0.00352882, 0.000986964)
+shape = SubResource("CapsuleShape3D_0xtyd")
+
+[node name="Missile2" type="Node3D" parent="."]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Missile2"]
+amount = 512
+lifetime = 2.0
+randomness = 0.5
+mesh = SubResource("SphereMesh_g42q2")
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(0, -0.3, 0)
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_dugqs")
+color = Color(0.478846, 0.440276, 0.442212, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Missile2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_8h75e")
+skeleton = NodePath("../..")

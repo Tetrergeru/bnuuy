@@ -4,7 +4,7 @@ extends Node
 var sdiper_prefabs = [preload("res://prefabs/sdiper_0.tscn")]
 
 @export var cooldown: float = 0.3
-@export var total_sdipers: int = 30
+@export var total_sdipers: int = 1
 
 var cooldown_timer : float = 0
 

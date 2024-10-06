@@ -1,12 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://de7w5blbkxbqu"]
+[gd_scene load_steps=11 format=4 uid="uid://de7w5blbkxbqu"]
 
 [ext_resource type="Script" path="res://scripts/missile.gd" id="1_ey0sm"]
 [ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_v8fuw"]
 [ext_resource type="Material" uid="uid://bharci32vtqvj" path="res://materials/carrot.tres" id="2_gikxy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xtyd"]
-radius = 0.110681
-height = 0.542636
+radius = 0.199365
+height = 0.39873
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khj7f"]
 resource_name = "Carrot"
@@ -49,7 +49,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o4vxc")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_baq38"]
+albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_g42q2"]
+material = SubResource("StandardMaterial3D_baq38")
 radius = 0.05
 height = 0.1
 radial_segments = 8

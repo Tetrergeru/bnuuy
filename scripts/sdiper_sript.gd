@@ -12,6 +12,11 @@ var atack_timer = 0
 
 @onready var state_machine: AnimationNodeStateMachinePlayback = $sdiper/AnimationTree.get("parameters/playback")
 @onready var area: ShapeCast3D = $sdiper/WhistleArmature/Skeleton3D/TargetAtachment/ShapeCast3D
+@onready var launcher: Node3D = $MissleLauncher
+
+@export var missile_timeout: float = 3
+var missile_timer: float = 3
+var homing_missile = preload("res://prefabs/homing_missile.tscn")  
 
 func _ready() -> void:
 	#area.connect("body_entered", _on_body_enter)
@@ -19,12 +24,20 @@ func _ready() -> void:
 
 func _physics_process(delta: float):
 	atack_timer = max(atack_timer - delta, 0)
+	missile_timer = max(missile_timer - delta, 0)
 	
 	if !player_controller:
 		player_controller = find_player(get_tree().root)
 		
 	if !player_controller:
 		return
+	
+	if missile_timer == 0:
+		missile_timer = missile_timeout
+		var instance: HomingMissile = homing_missile.instantiate()
+		instance.player = player_controller
+		instance.global_transform = launcher.global_transform
+		get_tree().root.add_child(instance)
 	
 	var player_pos = player_controller.global_position
 	var self_pos = global_position

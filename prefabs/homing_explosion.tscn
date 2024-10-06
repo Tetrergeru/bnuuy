@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://uakxei2hrxns"]
+
+[ext_resource type="Texture2D" uid="uid://cw206cmc1ig12" path="res://textures/explosion.png" id="1_kuypu"]
+[ext_resource type="Script" path="res://scripts/homing_explosion.gd" id="1_qo8ov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4u6j"]
+albedo_color = Color(0.68384, 0.26499, 0.0805695, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_74pt5"]
+material = SubResource("StandardMaterial3D_k4u6j")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_a2lgm"]
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s78kt"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(0.919438, 0, 0.00429528, 1)
+albedo_texture = ExtResource("1_kuypu")
+texture_filter = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5nj8r"]
+
+[node name="HomingExplosion" type="Area3D"]
+collision_mask = 3
+script = ExtResource("1_qo8ov")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.00771427, -0.99997, 0, 0.99997, 0.00771427, 0, 0, 0, 1, 0, 0, 0)
+emitting = false
+amount = 128
+one_shot = true
+mesh = SubResource("SphereMesh_74pt5")
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+color = Color(0.975477, 0.561168, 0.648376, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_a2lgm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_s78kt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5nj8r")
