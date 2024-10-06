@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b57p13qxdttb4"]
+
+[ext_resource type="FontFile" uid="uid://ck51xiwv1a6sa" path="res://fonts/JOYSTIX.TTF" id="1_acfs7"]
+
+[resource]
+Button/fonts/font = ExtResource("1_acfs7")

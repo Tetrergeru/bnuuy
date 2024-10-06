@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://c2x34s6ndbtew"]
+[gd_scene load_steps=7 format=4 uid="uid://c2x34s6ndbtew"]
 
+[ext_resource type="Script" path="res://scripts/stump.gd" id="1_4y0we"]
 [ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_p834d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6d31"]
@@ -48,6 +49,7 @@ height = 0.739148
 radius = 0.402342
 
 [node name="Stump" type="StaticBody3D"]
+script = ExtResource("1_4y0we")
 
 [node name="Stump" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_7wkj8")
@@ -56,3 +58,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.362369, 0)
 shape = SubResource("CylinderShape3D_qqlfl")
+
+[node name="HeartSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.844136, 0)

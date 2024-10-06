@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8inah42qexvf"]
+
+[sub_resource type="Environment" id="Environment_x7lg8"]
+background_mode = 1
+background_color = Color(0.389648, 0.653967, 0.832717, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.970821, 0.673381, 0.606933, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_x7lg8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.916398, 0.400269, 0, -0.400269, 0.916398, 0, 0, 0)
+light_color = Color(0.861007, 0.816649, 0.688035, 1)
+light_energy = 4.0
+shadow_enabled = true
+shadow_opacity = 0.5

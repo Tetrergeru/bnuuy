@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://drfifxyab8jfq"]
+
+[ext_resource type="Texture2D" uid="uid://drv4a5jrqbfd7" path="res://textures/sdiper_2.png" id="1_sfo15"]
+
+[resource]
+albedo_texture = ExtResource("1_sfo15")
+metallic = 0.5
+metallic_specular = 0.0
+roughness = 0.5
+texture_filter = 2

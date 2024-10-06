@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://bi774wijegu7a"]
+[gd_scene load_steps=7 format=4 uid="uid://bi774wijegu7a"]
 
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_g14h8"]
 [ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_qe43p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6d31"]
@@ -43,8 +44,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wd8ck")
 
-[node name="Heart" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4vg4"]
+radius = 0.696751
+height = 12.7941
+
+[node name="Heart" type="Area3D"]
+collision_mask = 3
+script = ExtResource("1_g14h8")
 
 [node name="Heart" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_grle8")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.18007, 0)
+shape = SubResource("CapsuleShape3D_c4vg4")

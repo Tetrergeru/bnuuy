@@ -15,12 +15,16 @@ var missile = preload("res://prefabs/missile.tscn")
 var current_point: int = 0
 @onready var state_machine: AnimationNodeStateMachinePlayback = $bnuuy/AnimationTree.get("parameters/playback")
 
+@onready var hearts: HBoxContainer = $Hearts
+var heart = preload("res://prefabs/heart_ui.tscn")
+var health: int = 3
+
 var jump_timer: float = 0
 @export var fire_timeout = 0.2
 var fire_timer: float = 0
 
 func _ready() -> void:
-	pass
+	update_hearts()
 
 func _process(delta: float) -> void:
 	fire_timer = max(fire_timer - delta, 0)
@@ -70,5 +74,22 @@ func handle_jump():
 	gun.rotation.y = 0
 	velocity = jump_velocity.rotated(Vector3.UP, rot_y)
 
-func handle_damage(damage: float):
-	print("damage")
+func handle_damage(damage: int):
+	health -= damage
+	update_hearts()
+
+func heal(heal: int):
+	health += heal
+	update_hearts()
+
+func update_hearts():
+	if health < 0:
+		health = 0
+	var children = hearts.get_children()
+	if children.size() > health:
+		for i in children.size() - health:
+			hearts.remove_child(children[i])
+	if children.size() < health:
+		for i in health - children.size():
+			var new_heart = heart.instantiate()
+			hearts.add_child(new_heart)

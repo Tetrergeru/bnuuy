@@ -1,10 +1,10 @@
 extends Node
 
 @onready var spawn_point: Node3D = $SpawnPoint
-var sdiper_prefabs = [preload("res://prefabs/sdiper_0.tscn")]
+var sdiper_prefabs = [preload("res://prefabs/sdiper_0.tscn"), preload("res://prefabs/sdiper_1.tscn"), preload("res://prefabs/sdiper_2.tscn")]
 
-@export var cooldown: float = 0.3
-@export var total_sdipers: int = 1
+@export var cooldown: float = 2
+@export var total_sdipers: int = 10
 
 var cooldown_timer : float = 0
 
@@ -14,6 +14,8 @@ func _process(delta: float) -> void:
 		total_sdipers -= 1
 		cooldown_timer = cooldown
 		
-		var instance: Node3D = sdiper_prefabs[0].instantiate()
-		instance.global_transform = spawn_point.global_transform
+		var instance: Node3D = sdiper_prefabs.pick_random().instantiate()
+		var scale = instance.scale
+		instance.scale = scale
 		get_tree().root.add_child(instance)
+		instance.global_position = spawn_point.global_position

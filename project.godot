@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom="res://fonts/main_theme.tres"
+
 [input]
 
 jump={

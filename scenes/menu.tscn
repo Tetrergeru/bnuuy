@@ -1,12 +1,15 @@
-[gd_scene load_steps=22 format=4 uid="uid://bp2bdgfikb3d7"]
+[gd_scene load_steps=24 format=4 uid="uid://b022vibowmecw"]
 
-[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_eqvug"]
-[ext_resource type="Texture2D" uid="uid://esd6jcqorpjr" path="res://models/bnuuy_bnuuy.png" id="1_xo4fp"]
+[ext_resource type="Texture2D" uid="uid://esd6jcqorpjr" path="res://models/bnuuy_bnuuy.png" id="1_0iw4u"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_sn3wd"]
+[ext_resource type="PackedScene" uid="uid://c8inah42qexvf" path="res://scenes/world_environment.tscn" id="2_fma18"]
+[ext_resource type="Material" uid="uid://dqxh3bfqnd32l" path="res://materials/land_material.tres" id="4_cexai"]
+[ext_resource type="Texture2D" uid="uid://bbak8jmuxlumd" path="res://textures/bnuuy_logo.png" id="5_076g7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju0b3"]
 resource_name = "Weapons"
 cull_mode = 2
-albedo_texture = ExtResource("1_xo4fp")
+albedo_texture = ExtResource("1_0iw4u")
 metallic = 0.5
 roughness = 0.5
 texture_filter = 2
@@ -116,7 +119,7 @@ shadow_mesh = SubResource("ArrayMesh_btg30")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mp68j"]
 resource_name = "Bnuuy"
 cull_mode = 2
-albedo_texture = ExtResource("1_xo4fp")
+albedo_texture = ExtResource("1_0iw4u")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7gl0s"]
@@ -390,39 +393,31 @@ _data = {
 "Jump": SubResource("Animation_ismxi")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h1o0p"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4olcx"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_euxti"]
-animation = &"Jump"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c0f2i"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6trgg"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_46ywf"]
-switch_mode = 2
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5r3ve"]
+states/Idle/node = SubResource("AnimationNodeAnimation_4olcx")
+states/Idle/position = Vector2(318, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_6trgg")]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_e84u6"]
-states/Idle/node = SubResource("AnimationNodeAnimation_h1o0p")
-states/Idle/position = Vector2(361, 108)
-states/Jump/node = SubResource("AnimationNodeAnimation_euxti")
-states/Jump/position = Vector2(483, 108)
-states/Start/position = Vector2(237, 108)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_c0f2i"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_46ywf")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjlga"]
+albedo_color = Color(0.359069, 0.359069, 0.359069, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pgflx"]
-radius = 0.310843
-height = 0.941814
+[sub_resource type="CylinderMesh" id="CylinderMesh_h8qqd"]
+material = SubResource("StandardMaterial3D_rjlga")
+top_radius = 2.0
+bottom_radius = 2.0
+radial_segments = 16
 
-[node name="Player" type="CharacterBody3D"]
-collision_layer = 2
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-script = ExtResource("1_eqvug")
+[node name="Menu" type="Node3D"]
+script = ExtResource("1_sn3wd")
 
 [node name="bnuuy" type="Node3D" parent="."]
-transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48564, 0)
 
 [node name="BattleGear" type="MeshInstance3D" parent="bnuuy"]
 mesh = SubResource("ArrayMesh_5u8fn")
@@ -435,12 +430,6 @@ skeleton = NodePath("")
 [node name="Gun" type="MeshInstance3D" parent="bnuuy"]
 mesh = SubResource("ArrayMesh_5c467")
 skeleton = NodePath("")
-
-[node name="SpawnPoint1" type="Node3D" parent="bnuuy/Gun"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.228988, 1.58786, 0.460435)
-
-[node name="SpawnPoint2" type="Node3D" parent="bnuuy/Gun"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.227803, 1.59257, 0.505336)
 
 [node name="BnuuySkeleton" type="Node3D" parent="bnuuy"]
 
@@ -457,42 +446,42 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.906041, 0.100552, 0.411071, 0.411071, -0.439912, -0.798434, 0.100552, 0.892394, -0.439912, 0.488736, 0.812025, 0.078323)
 bones/1/enabled = true
 bones/1/position = Vector3(0.488736, 0.812025, 0.078323)
-bones/1/rotation = Quaternion(0.839916, 0.151033, 0.153631, 0.498125)
+bones/1/rotation = Quaternion(0.835591, 0.152833, 0.153336, 0.504894)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Leg.002.L"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.906041, -0.368829, 0.207498, 0.100551, -0.288652, -0.952139, 0.411071, 0.883541, -0.224444, 1.11759e-08, 0.498519, -1.49012e-08)
 bones/2/enabled = true
 bones/2/position = Vector3(1.11759e-08, 0.498519, -1.49012e-08)
-bones/2/rotation = Quaternion(0.768277, -0.0883897, 0.19668, 0.602706)
+bones/2/rotation = Quaternion(0.775913, -0.0866522, 0.198445, 0.592512)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Leg.003.L"
 bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, -0.229323, -0.97335, 0, 0.97335, -0.229323, 0.538863, 0.201105, 0.156646)
 bones/3/enabled = true
-bones/3/position = Vector3(0.538863, 0.187775, 0.156646)
-bones/3/rotation = Quaternion(0.7781, 4.86293e-18, 3.85036e-18, 0.628141)
+bones/3/position = Vector3(0.538863, 0.198568, 0.156646)
+bones/3/rotation = Quaternion(0.782868, 0, 0, 0.622188)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Leg.001.R"
 bones/4/parent = 0
 bones/4/rest = Transform3D(0.906041, -0.100552, -0.411071, -0.411071, -0.439912, -0.798434, -0.100552, 0.892394, -0.439912, -0.488736, 0.812025, 0.078323)
 bones/4/enabled = true
 bones/4/position = Vector3(-0.488736, 0.812025, 0.078323)
-bones/4/rotation = Quaternion(0.839916, -0.151033, -0.153631, 0.498125)
+bones/4/rotation = Quaternion(0.835591, -0.152833, -0.153336, 0.504894)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Leg.002.R"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0.906041, 0.368829, -0.207498, -0.100551, -0.288652, -0.952139, -0.411071, 0.883541, -0.224444, -1.11759e-08, 0.498519, -1.49012e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(-1.11759e-08, 0.498519, -1.49012e-08)
-bones/5/rotation = Quaternion(0.768277, 0.0883897, -0.19668, 0.602706)
+bones/5/rotation = Quaternion(0.775913, 0.0866522, -0.198445, 0.592512)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Leg.003.R"
 bones/6/parent = 0
 bones/6/rest = Transform3D(1, 0, 0, 0, -0.229323, -0.97335, 0, 0.97335, -0.229323, -0.538863, 0.201105, 0.156646)
 bones/6/enabled = true
-bones/6/position = Vector3(-0.538863, 0.187775, 0.156646)
-bones/6/rotation = Quaternion(0.7781, 4.86293e-18, 3.85036e-18, 0.628141)
+bones/6/position = Vector3(-0.538863, 0.198568, 0.156646)
+bones/6/rotation = Quaternion(0.782868, 0, 0, 0.622188)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Spine.002"
 bones/7/parent = 0
@@ -520,14 +509,14 @@ bones/10/parent = -1
 bones/10/rest = Transform3D(1, -3.49634e-18, -4.44061e-16, -4.44061e-16, -0.0157461, -0.999876, -3.49635e-18, 0.999876, -0.0157461, -6.95648e-19, 0.808892, -0.999402)
 bones/10/enabled = true
 bones/10/position = Vector3(-6.95648e-19, 0.808892, -0.999402)
-bones/10/rotation = Quaternion(0.715303, -1.55855e-16, -1.61662e-16, 0.698814)
+bones/10/rotation = Quaternion(0.713329, -1.57155e-16, -1.56853e-16, 0.700829)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Head"
 bones/11/parent = 10
 bones/11/rest = Transform3D(1, -2.84217e-14, 2.38419e-07, -1.211e-07, 0.861399, 0.507929, -2.05374e-07, -0.507929, 0.861399, 3.4328e-23, 1.59172, -1.58325e-08)
 bones/11/enabled = true
 bones/11/position = Vector3(3.4328e-23, 1.59172, -1.58325e-08)
-bones/11/rotation = Quaternion(-0.279602, 1.12366e-07, -4.09851e-08, 0.960116)
+bones/11/rotation = Quaternion(-0.266368, 1.15105e-07, -3.10099e-08, 0.963871)
 bones/11/scale = Vector3(1, 1, 1)
 
 [node name="Bnuuy" type="MeshInstance3D" parent="bnuuy/BnuuySkeleton/Skeleton3D"]
@@ -540,21 +529,48 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="bnuuy"]
-tree_root = SubResource("AnimationNodeStateMachine_e84u6")
+tree_root = SubResource("AnimationNodeStateMachine_5r3ve")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.00788878, -0.999969, 0, 0.999969, -0.00788878, 0, 0.227518, 0)
-shape = SubResource("CapsuleShape3D_pgflx")
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26023, 5.49754)
 
-[node name="CameraPole" type="Node3D" parent="."]
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_fma18")]
 
-[node name="Camera3D" type="Camera3D" parent="CameraPole"]
-transform = Transform3D(-4.37114e-08, 0.586372, -0.810042, 0, 0.810042, 0.586372, 1, 2.56312e-08, -3.5408e-08, -1.46698, 1.398, 0)
-fov = 88.3201
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.45376, -0.326732)
+mesh = SubResource("CylinderMesh_h8qqd")
+surface_material_override/0 = ExtResource("4_cexai")
 
-[node name="Hearts" type="HBoxContainer" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 1020.0
-offset_bottom = 60.0
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -255.0
+offset_right = 256.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_076g7")
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = 123.0
+offset_right = 155.5
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
