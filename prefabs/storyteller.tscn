@@ -12,22 +12,27 @@ script = ExtResource("1_ymel0")
 
 [node name="Line0" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_rxkae")
+volume_db = 10.0
 bus = &"Dialog"
 
 [node name="Line1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_flk70")
+volume_db = 10.0
 bus = &"Dialog"
 
 [node name="Line2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_332i6")
+volume_db = 10.0
 bus = &"Dialog"
 
 [node name="Line3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_683mb")
+volume_db = 10.0
 bus = &"Dialog"
 
 [node name="LineLoose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_iot0h")
+volume_db = 10.0
 bus = &"Dialog"
 
 [node name="Subtitles" type="RichTextLabel" parent="."]
