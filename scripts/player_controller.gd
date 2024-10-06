@@ -69,3 +69,6 @@ func handle_jump():
 	camera_pole.rotation.y = 0
 	gun.rotation.y = 0
 	velocity = jump_velocity.rotated(Vector3.UP, rot_y)
+
+func handle_damage(damage: float):
+	print("damage")
