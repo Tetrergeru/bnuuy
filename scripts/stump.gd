@@ -5,11 +5,13 @@ class_name Stump
 var timer = 0
 
 @onready var spawn: Node3D = $HeartSpawnPoint 
+@onready var powerup_sound: AudioStreamPlayer3D = $PowerupSound 
 var heart: Heart
 
 var prefab = preload("res://prefabs/heart.tscn")
 
 func heart_taken():
+	powerup_sound.play()
 	heart = null
 	timer = timeout
 

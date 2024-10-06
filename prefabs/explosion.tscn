@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8hrafbrspljj"]
+[gd_scene load_steps=8 format=3 uid="uid://c8hrafbrspljj"]
 
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_7fc2p"]
 [ext_resource type="Material" uid="uid://bkik5sfxquvmw" path="res://materials/explosion.tres" id="1_x532c"]
+[ext_resource type="AudioStream" uid="uid://bv6lhx60cslqc" path="res://sound/explosion.wav" id="3_ojdmg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4u6j"]
 albedo_color = Color(0.68384, 0.26499, 0.0805695, 1)
@@ -41,3 +42,9 @@ surface_material_override/0 = ExtResource("1_x532c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_5nj8r")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ojdmg")
+volume_db = -10.0
+autoplay = true
+panning_strength = 0.3

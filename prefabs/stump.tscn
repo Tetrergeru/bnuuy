@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://c2x34s6ndbtew"]
+[gd_scene load_steps=8 format=4 uid="uid://c2x34s6ndbtew"]
 
 [ext_resource type="Script" path="res://scripts/stump.gd" id="1_4y0we"]
 [ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_p834d"]
+[ext_resource type="AudioStream" uid="uid://ce0wox30kqiwg" path="res://sound/powerUp.wav" id="3_yhqrm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6d31"]
 resource_name = "Carrot"
@@ -61,3 +62,6 @@ shape = SubResource("CylinderShape3D_qqlfl")
 
 [node name="HeartSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.844136, 0)
+
+[node name="PowerupSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_yhqrm")

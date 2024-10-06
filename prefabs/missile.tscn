@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://de7w5blbkxbqu"]
+[gd_scene load_steps=12 format=4 uid="uid://de7w5blbkxbqu"]
 
 [ext_resource type="Script" path="res://scripts/missile.gd" id="1_ey0sm"]
 [ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_v8fuw"]
 [ext_resource type="Material" uid="uid://bharci32vtqvj" path="res://materials/carrot.tres" id="2_gikxy"]
+[ext_resource type="AudioStream" uid="uid://dsy533ut6864p" path="res://sound/laserShoot.wav" id="4_b7k2d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xtyd"]
 radius = 0.199365
@@ -94,3 +95,8 @@ scale_amount_curve = SubResource("Curve_dugqs")
 color = Color(0.478846, 0.440276, 0.442212, 1)
 hue_variation_min = -0.1
 hue_variation_max = 0.1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_b7k2d")
+autoplay = true
+panning_strength = 0.2

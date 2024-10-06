@@ -11,15 +11,18 @@ var missile = preload("res://prefabs/missile.tscn")
 
 @onready var camera_pole: Node3D = $CameraPole
 @onready var gun: Node3D = $bnuuy/Gun
+@onready var jump_sound: AudioStreamPlayer3D = $bnuuy/JumpSound
+@onready var landing_sound: AudioStreamPlayer3D = $bnuuy/LandingSound
 @onready var spawn_points: Array[Node3D] = [$bnuuy/Gun/SpawnPoint1,  $bnuuy/Gun/SpawnPoint2]
 var current_point: int = 0
 @onready var state_machine: AnimationNodeStateMachinePlayback = $bnuuy/AnimationTree.get("parameters/playback")
 
 @onready var hearts: HBoxContainer = $Hearts
 var heart = preload("res://prefabs/heart_ui.tscn")
-var health: int = 1
+var health: int = 3
 
 var jump_timer: float = 0
+var is_jumping = true
 @export var fire_timeout = 0.2
 var fire_timer: float = 0
 
@@ -54,6 +57,9 @@ func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity.y -= 9.8 * delta
 	else:
+		if is_jumping:
+			landing_sound.play()
+			is_jumping = false
 		if jump_timer <= 0:
 			velocity.x = 0
 			velocity.z = 0
@@ -72,6 +78,8 @@ func handle_rotate(shift: Vector2):
 	)
 	
 func handle_jump():
+	is_jumping = true
+	jump_sound.play()
 	state_machine.travel("Jump")
 	jump_timer = 0.1
 	var rot_y = camera_pole.global_rotation.y

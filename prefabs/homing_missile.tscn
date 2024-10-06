@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bma8lbjgm2ohd"]
+[gd_scene load_steps=9 format=3 uid="uid://bma8lbjgm2ohd"]
 
 [ext_resource type="Script" path="res://scripts/homing_missile.gd" id="1_a5gm6"]
+[ext_resource type="AudioStream" uid="uid://bj0v8tvrdte7j" path="res://sound/laserShoot_2.wav" id="2_f8ier"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xtyd"]
 radius = 0.199365
@@ -62,3 +63,8 @@ hue_variation_max = 0.1
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_8h75e")
 skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_f8ier")
+autoplay = true
+panning_strength = 0.3
