@@ -1,17 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh8pch3imi0ak"]
+[gd_scene load_steps=10 format=3 uid="uid://bh8pch3imi0ak"]
 
 [ext_resource type="PackedScene" uid="uid://cbcipbwfioql7" path="res://prefabs/landscape.tscn" id="4_jcnyd"]
 [ext_resource type="Shader" path="res://materials/land.gdshader" id="5_6sm1c"]
 [ext_resource type="PackedScene" uid="uid://bp2bdgfikb3d7" path="res://prefabs/player.tscn" id="6_k71cb"]
 [ext_resource type="Texture2D" uid="uid://b31pkab8lgkwl" path="res://textures/land_mask.png" id="6_mydt6"]
 [ext_resource type="Texture2D" uid="uid://c8v8sj22jlrxn" path="res://textures/grass_1.png" id="7_j4rvh"]
+[ext_resource type="PackedScene" uid="uid://fqhnvqn5058w" path="res://prefabs/sdiper_spawner.tscn" id="7_rytu2"]
 [ext_resource type="Texture2D" uid="uid://cban5c7rt5ws0" path="res://textures/grass_2.png" id="8_ac4j8"]
 
 [sub_resource type="Environment" id="Environment_x7lg8"]
 background_energy_multiplier = 2.0
 ambient_light_color = Color(0.76662, 0.76662, 0.76662, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqymw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6e40"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("5_6sm1c")
@@ -38,4 +39,7 @@ shadow_enabled = true
 shadow_opacity = 0.88
 
 [node name="Grid" parent="." instance=ExtResource("4_jcnyd")]
-surface_material_override/0 = SubResource("ShaderMaterial_fqymw")
+surface_material_override/0 = SubResource("ShaderMaterial_x6e40")
+
+[node name="SdiperSpawner" parent="." instance=ExtResource("7_rytu2")]
+transform = Transform3D(0.664226, 0, 0.747532, 0, 1, 0, -0.747532, 0, 0.664226, 8, 8.12002, 10)

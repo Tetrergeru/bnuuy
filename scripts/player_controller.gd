@@ -1,29 +1,37 @@
 extends CharacterBody3D
+class_name PlayerController
 
 @export var max_up_rotation_angle: float = 30
 @export var max_down_rotation_angle: float = 45
 @export var sensitivity: float = 0.01;
 @export var jump_velocity: Vector3 = Vector3(5, 10, 0);
+@export var kickback: float = 5
 
 var missile = preload("res://prefabs/missile.tscn")
 
 @onready var camera_pole: Node3D = $CameraPole
 @onready var gun: Node3D = $bnuuy/Gun
-@onready var spawn_point_1: Node3D = $bnuuy/Gun/SpawnPoint1
+@onready var spawn_points: Array[Node3D] = [$bnuuy/Gun/SpawnPoint1,  $bnuuy/Gun/SpawnPoint2]
+var current_point: int = 0
 @onready var state_machine: AnimationNodeStateMachinePlayback = $bnuuy/AnimationTree.get("parameters/playback")
 
 var jump_timer: float = 0
+@export var fire_timeout = 0.2
+var fire_timer: float = 0
 
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("fire"):
+	fire_timer = max(fire_timer - delta, 0)
+	if Input.is_action_pressed("fire") && fire_timer <= 0:
+		fire_timer = fire_timeout
 		var instance: Node3D = missile.instantiate()
-		#instance.global_rotation = spawn_point_1.global_rotation
-		#instance.global_position = spawn_point_1.global_position
-		instance.global_transform = spawn_point_1.global_transform
+		instance.global_transform = spawn_points[current_point].global_transform
+		instance.rotation.z = camera_pole.rotation.z
+		current_point = (current_point + 1) % 2
 		get_tree().root.add_child(instance)
+		velocity += -instance.global_transform.basis.x * kickback
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -39,8 +47,8 @@ func _physics_process(delta: float):
 		if jump_timer <= 0:
 			velocity.x = 0
 			velocity.z = 0
-		if Input.is_action_just_pressed("jump"):
-			handle_jump()
+			if Input.is_action_pressed("jump"):
+				handle_jump()
 			
 	move_and_slide()
 
