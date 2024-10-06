@@ -1,21 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://de7w5blbkxbqu"]
+[gd_scene load_steps=6 format=4 uid="uid://p3w1nnmhutpv"]
 
-[ext_resource type="Script" path="res://scripts/missile.gd" id="1_ey0sm"]
-[ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_v8fuw"]
-[ext_resource type="Material" uid="uid://bharci32vtqvj" path="res://materials/carrot.tres" id="2_gikxy"]
+[ext_resource type="Texture2D" uid="uid://ga4ui55ckux3" path="res://models/stuff_stuff.png" id="1_2mkq8"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xtyd"]
-radius = 0.199365
-height = 0.39873
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khj7f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6d31"]
 resource_name = "Carrot"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("1_v8fuw")
+albedo_texture = ExtResource("1_2mkq8")
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_o4vxc"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_mrsnc"]
 _surfaces = [{
 "aabb": AABB(-0.155161, -0.368176, -0.142585, 0.310322, 0.900273, 0.28517),
 "format": 34896613377,
@@ -30,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ylwhl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_soqng"]
 resource_name = "stuff_Carrot"
 _surfaces = [{
 "aabb": AABB(-0.155161, -0.368176, -0.142585, 0.310322, 0.900273, 0.28517),
@@ -39,7 +33,7 @@ _surfaces = [{
 "index_count": 360,
 "index_data": PackedByteArray("WwBjAFkAWwBkAGMAawByAGkAawBzAHIANwARAAkANwA7ABEAWQBgAFgAWQBiAGAAbAB0AGsAbAB1AHQAPAAUAA4APABEABQAYQBnAF8AYQBpAGcAhgB1AGwAhgCLAHUAQwAZABYAQwBNABkAYwBpAGEAYwBqAGkAcQA5AG4AcQA0ADkASwAhABwASwBUACEAZABrAGMAZABsAGsAdAA0AHEAdAACADQAVQAnAB8AVQBdACcAggBsAGQAggCFAGwAdQAAAHQAdQADAAAAXgArACUAXgBmACsAEAAVAHYAjAADAHUAjACHAAMAZQAwACwAZQBvADAAgQBkAFsAgQCDAGQAaQBwAGgAaQByAHAAbQAKADIAbQA2AAoABgAvAI0AWABcAFcAWABgAFwAfwBbAFMAfwCAAFsAUwBZAFIAUwBbAFkAUgBYAE8AUgBaAFgATwBWAEwATwBYAFYAfABTAEoAfAB+AFMASgBSAEkASgBTAFIASQBQAEcASQBRAFAARwBOAEUARwBQAE4AeABKAEIAeAB7AEoAQgBJAEEAQgBKAEkAQQBHAD8AQQBIAEcAPwBGAD0APwBHAEYAiQBCAAQAiQB5AEIABABBAAEABABCAEEAAQA+ADUAAQBAAD4ANQA6ADgANQA+ADoABwB6AIgABwANAHoAFQAbAHYAdgAxAAsAIgAmAHYAMwB3AC0AGgAgAHYAdgAIAA8AKAAtAHYADQB7AHoADQATAHsAEwB+AHsAEwAXAH4AFwCAAH0AFwAdAIAAHQCEAIAAHQAjAIQALgCHAIoALgAFAIcAIwCFAIQAIwApAIUAKQCKAIUAKQAuAIoAjgCRAI8AjgCQAJEAKgAkAI0AHgAYAI0AjQAMAAYALwAqAI0AGAASAI0ADACNABIAJAAeAI0AkgCVAJMAkgCUAJUAlgCZAJcAlgCYAJkAmgCdAJsAmgCcAJ0A"),
 "lods": [0.0249458, PackedByteArray("/gAAAf0A/QDsAOkA/QAAAewAAAHhAOwAAAHvAOEAAQHvAAAB/gABAQABAQHeAO8ACAHeAAEBBwEIAQEBBwEBAf4A6wAIAQcB6wAFAAkBBgEHAf4A6wAHAQYBHQDrAAYBHQAGAQQBBAEGAfwABgH/APwA/AD+AP0ABAH8APoA/AD9APsA+gD8APsA+wD9AOgABAH6APcA+gD7APkA+QD7AOgA9wD6APkA+QDoAOYA9gD5AOYA9wD5APYA9QD3APYA9QD2APQA9AD2AOUA9ADlAOMA8QD0AOMA8gD1APQA8gD0APEA3wDyAPEA3wDxAPAA8ADxAOIA8ADiAAkACgHzAN8ACgEDAfIA4AADAQoBAgH1APIAAgH4APUA4AATAAIBEwAFAQIBAgEFAfcAEwAdAAUB5ADnAO0A5wDqAO0A7gAIAOQAjgCRAI8AjgCQAJEAHgASAAYAKgAeAAYACwENAQwBCwGUAA0BDgEQAQ8BDgGYABABmgCdAJsAmgCcAJ0A"), 0.0472713, PackedByteArray("0ADCAMgA0ADUAMIA1ADGAMIAwgDGAAoAyADDAL4A0QDJAL4AzQDRAL4AzQC/ALoAygDOALoAxwC2AAkA1gC2AMcA1gDLALYAywC7ALcABwDMANcABwC5AMwAuQDPAMwAuQDSAM8AuQDBANIAwQDVANMAwQAFANUAuAC8AMQAvQDAAMQAxQAIALgAjgDYAI8AjgCQANgAKgASAAYAkgCVAJMAkgCUAJUA2QDbANoA2QCYANsA3ADdAJsA3ACcAN0A"), 0.0779649, PackedByteArray("qwCeAKgAqACeAKQABAAlAAkApQCsAKkAoACmAKoAowCnAKEArQCiAJ8ArgCxAK8ArgCwALEAKgASAAYAkgCVAJMAkgCUAJUAsgC0ALMAlgCYALQAmgCdALUAmgCcAJ0A")],
-"material": SubResource("StandardMaterial3D_khj7f"),
+"material": SubResource("StandardMaterial3D_s6d31"),
 "name": "Carrot",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -47,50 +41,19 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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1gjKqRxAK98KRpjHwEKw1EBTn+kJVGvyVF1o9ml2qyJodqsiv1yr9Y5Y0ew9YSv/AAD/f////3////9/////f////3///0WZ//9Fmf//RZn//0WZ///Ysv//2LL//9iy///Ysj1W/389Vv9/PVb/fz1W/3+GdVn1JIiS9jx6vQVAh6wF11R/9Hh0fSu1jjrseHYBPNF+iwKDX9VGh4U346GTQb2jyjZzT2tC9jNCHO+jO+3h/3////9/////f////3////9/AAD/fwAA/3////9////gobIQqpsUEw/j4IEHWJxQ8Lg3Ewun8g0A3jhmgN8WcpePONUTnkS1AOghqIIzwtlakNfhSJRJ21n72lrA7yNbIYlP9MqJxgeti87dp4W648h9QgVrig4FWF1wRY2ucNFFcroNDQrxdeOCuvmzghH6cjG32T1B9eDjbYfrFXko+2ZpBBPRdRIR/3////9/AAD/fwAA/38AAP9/////f///0nzf/PR7CwQCdrMrdo205piveRPOpGwU/t78hSG7Ix14z1sm1t8QbVSju7jDnEfFReQVrSY4GtxElX/YkPehVp70Sl4ticj084nbB4CUzACtfSwIonpJFwShPBbMfGcGE6XPJDFzIxL7Z1giR+/YUE9KTspXqPHXrW6/8zmKRd+sd9b78mJE8i2Bael6eRj+VGabM75i+j5OEE2QfBeDaIE63tlGT8DngXJ8+M12v/ZkdmQQ/3////9/AAD/fwAA/38AAP9/AAD/fwAA")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_o4vxc")
+shadow_mesh = SubResource("ArrayMesh_mrsnc")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vehbt"]
-albedo_color = Color(0.633757, 0.633757, 0.633757, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_86lgl"]
+radius = 0.319753
+height = 1.6716
 
-[sub_resource type="SphereMesh" id="SphereMesh_2afa4"]
-material = SubResource("StandardMaterial3D_vehbt")
-radius = 0.05
-height = 0.1
-radial_segments = 8
-rings = 4
+[node name="Carrot" type="StaticBody3D"]
 
-[sub_resource type="Curve" id="Curve_dugqs"]
-_data = [Vector2(0.0272109, 0.351648), 0.0, 0.0, 0, 0, Vector2(0.142857, 1), 0.0, 0.0, 0, 0, Vector2(0.666667, 1), 0.0, 0.0, 0, 0, Vector2(0.938776, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[node name="Missile" type="RigidBody3D"]
-collision_layer = 4
-script = ExtResource("1_ey0sm")
+[node name="Carrot" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3, 4.52987e-07, 0, -4.52987e-07, -3, 0, 0, 0, 3, 0, 0.499638, 0)
+mesh = SubResource("ArrayMesh_soqng")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.055517, 0.00289064, -0.243191)
-shape = SubResource("CapsuleShape3D_0xtyd")
-
-[node name="Carrot2" type="Node3D" parent="."]
-
-[node name="Carrot" type="MeshInstance3D" parent="Carrot2"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("ArrayMesh_ylwhl")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_gikxy")
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="Carrot2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0638186)
-amount = 512
-lifetime = 2.0
-randomness = 0.5
-mesh = SubResource("SphereMesh_2afa4")
-emission_shape = 1
-emission_sphere_radius = 0.3
-gravity = Vector3(0, -0.3, 0)
-scale_amount_min = 0.5
-scale_amount_max = 2.0
-scale_amount_curve = SubResource("Curve_dugqs")
-color = Color(0.478846, 0.440276, 0.442212, 1)
-hue_variation_min = -0.1
-hue_variation_max = 0.1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.308068, 0)
+shape = SubResource("CapsuleShape3D_86lgl")
