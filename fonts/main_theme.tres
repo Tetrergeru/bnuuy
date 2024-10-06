@@ -4,3 +4,4 @@
 
 [resource]
 Button/fonts/font = ExtResource("1_acfs7")
+RichTextLabel/fonts/normal_font = ExtResource("1_acfs7")

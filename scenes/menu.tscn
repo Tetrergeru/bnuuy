@@ -446,42 +446,42 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.906041, 0.100552, 0.411071, 0.411071, -0.439912, -0.798434, 0.100552, 0.892394, -0.439912, 0.488736, 0.812025, 0.078323)
 bones/1/enabled = true
 bones/1/position = Vector3(0.488736, 0.812025, 0.078323)
-bones/1/rotation = Quaternion(0.834971, 0.153089, 0.153293, 0.505854)
+bones/1/rotation = Quaternion(0.835465, 0.152885, 0.153327, 0.50509)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Leg.002.L"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.906041, -0.368829, 0.207498, 0.100551, -0.288652, -0.952139, 0.411071, 0.883541, -0.224444, 1.11759e-08, 0.498519, -1.49012e-08)
 bones/2/enabled = true
 bones/2/position = Vector3(1.11759e-08, 0.498519, -1.49012e-08)
-bones/2/rotation = Quaternion(0.77695, -0.0864123, 0.198683, 0.591107)
+bones/2/rotation = Quaternion(0.776121, -0.0866042, 0.198492, 0.59223)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Leg.003.L"
 bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, -0.229323, -0.97335, 0, 0.97335, -0.229323, 0.538863, 0.201105, 0.156646)
 bones/3/enabled = true
-bones/3/position = Vector3(0.538863, 0.200056, 0.156646)
-bones/3/rotation = Quaternion(0.783186, 2.84445e-18, 2.25217e-18, 0.621787)
+bones/3/position = Vector3(0.538863, 0.198866, 0.156646)
+bones/3/rotation = Quaternion(0.78299, 4.86261e-18, 3.85011e-18, 0.622035)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Leg.001.R"
 bones/4/parent = 0
 bones/4/rest = Transform3D(0.906041, -0.100552, -0.411071, -0.411071, -0.439912, -0.798434, -0.100552, 0.892394, -0.439912, -0.488736, 0.812025, 0.078323)
 bones/4/enabled = true
 bones/4/position = Vector3(-0.488736, 0.812025, 0.078323)
-bones/4/rotation = Quaternion(0.834971, -0.153089, -0.153293, 0.505854)
+bones/4/rotation = Quaternion(0.835465, -0.152885, -0.153327, 0.50509)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Leg.002.R"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0.906041, 0.368829, -0.207498, -0.100551, -0.288652, -0.952139, -0.411071, 0.883541, -0.224444, -1.11759e-08, 0.498519, -1.49012e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(-1.11759e-08, 0.498519, -1.49012e-08)
-bones/5/rotation = Quaternion(0.77695, 0.0864123, -0.198683, 0.591107)
+bones/5/rotation = Quaternion(0.776121, 0.0866042, -0.198492, 0.59223)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Leg.003.R"
 bones/6/parent = 0
 bones/6/rest = Transform3D(1, 0, 0, 0, -0.229323, -0.97335, 0, 0.97335, -0.229323, -0.538863, 0.201105, 0.156646)
 bones/6/enabled = true
-bones/6/position = Vector3(-0.538863, 0.200056, 0.156646)
-bones/6/rotation = Quaternion(0.783186, 2.84445e-18, 2.25217e-18, 0.621787)
+bones/6/position = Vector3(-0.538863, 0.198866, 0.156646)
+bones/6/rotation = Quaternion(0.78299, 4.86261e-18, 3.85011e-18, 0.622035)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Spine.002"
 bones/7/parent = 0
@@ -509,14 +509,14 @@ bones/10/parent = -1
 bones/10/rest = Transform3D(1, -3.49634e-18, -4.44061e-16, -4.44061e-16, -0.0157461, -0.999876, -3.49635e-18, 0.999876, -0.0157461, -6.95648e-19, 0.808892, -0.999402)
 bones/10/enabled = true
 bones/10/position = Vector3(-6.95648e-19, 0.808892, -0.999402)
-bones/10/rotation = Quaternion(0.71296, -1.55837e-16, -1.60664e-16, 0.701205)
+bones/10/rotation = Quaternion(0.713167, -1.55378e-16, -1.62141e-16, 0.700994)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Head"
 bones/11/parent = 10
 bones/11/rest = Transform3D(1, -2.84217e-14, 2.38419e-07, -1.211e-07, 0.861399, 0.507929, -2.05374e-07, -0.507929, 0.861399, 3.4328e-23, 1.59172, -1.58325e-08)
 bones/11/enabled = true
 bones/11/position = Vector3(3.4328e-23, 1.59172, -1.58325e-08)
-bones/11/rotation = Quaternion(-0.263804, 1.1291e-07, -3.90593e-08, 0.964576)
+bones/11/rotation = Quaternion(-0.266001, 1.1194e-07, -4.26127e-08, 0.963973)
 bones/11/scale = Vector3(1, 1, 1)
 
 [node name="Bnuuy" type="MeshInstance3D" parent="bnuuy/BnuuySkeleton/Skeleton3D"]
@@ -572,5 +572,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "PLAY"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 265.0
+offset_right = 711.0
+offset_bottom = 373.0
+text = "[Space]   - Hop
+[Mouse]   - Look around
+[LMB/e]   - SHOOT
+[Tab/esc] - Unfocues"
 
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

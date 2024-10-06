@@ -19,7 +19,7 @@ var current_point: int = 0
 
 @onready var hearts: HBoxContainer = $Hearts
 var heart = preload("res://prefabs/heart_ui.tscn")
-var health: int = 3
+var health: int = 1
 
 var jump_timer: float = 0
 var is_jumping = true
@@ -30,10 +30,6 @@ func _ready() -> void:
 	update_hearts()
 
 func _process(delta: float) -> void:
-	if health <= 0:
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
-		return
-		
 	fire_timer = max(fire_timer - delta, 0)
 	if Input.is_action_just_pressed("Esc"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://fxm8i0fjswv8"]
+
+[ext_resource type="AudioStream" uid="uid://csso5nqi5n6p4" path="res://sound/lines/line_0.mp3" id="1_rxkae"]
+[ext_resource type="Script" path="res://scripts/story_teller.gd" id="1_ymel0"]
+[ext_resource type="AudioStream" uid="uid://blynrk1og74rg" path="res://sound/lines/line_1.mp3" id="2_flk70"]
+[ext_resource type="AudioStream" uid="uid://c60mfafr51yfi" path="res://sound/lines/line_2.mp3" id="3_332i6"]
+[ext_resource type="AudioStream" uid="uid://b2jwn63si77fm" path="res://sound/lines/line_3.mp3" id="4_683mb"]
+[ext_resource type="AudioStream" uid="uid://ykdifpc00twv" path="res://sound/lines/line_loose.mp3" id="5_iot0h"]
+
+[node name="Storyteller" type="Node3D"]
+script = ExtResource("1_ymel0")
+
+[node name="Line0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rxkae")
+bus = &"Dialog"
+
+[node name="Line1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_flk70")
+bus = &"Dialog"
+
+[node name="Line2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_332i6")
+bus = &"Dialog"
+
+[node name="Line3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_683mb")
+bus = &"Dialog"
+
+[node name="LineLoose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iot0h")
+bus = &"Dialog"
+
+[node name="Subtitles" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -100.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]Captain Bnuny: Go go go[/center]"
+fit_content = true

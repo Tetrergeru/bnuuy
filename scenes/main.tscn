@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ckjrwlh3ixlti" path="res://prefabs/stuff/crate.tscn" id="11_wvpxk"]
 [ext_resource type="PackedScene" uid="uid://bh5ar1gec4ihw" path="res://prefabs/stuff/tree.tscn" id="12_4jota"]
 [ext_resource type="PackedScene" uid="uid://c2x34s6ndbtew" path="res://prefabs/stump.tscn" id="13_b1dpq"]
-[ext_resource type="Script" path="res://scripts/story_teller.gd" id="15_up3gc"]
+[ext_resource type="PackedScene" uid="uid://fxm8i0fjswv8" path="res://prefabs/storyteller.tscn" id="15_b1rwd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x6e40"]
 resource_local_to_scene = true
@@ -223,5 +223,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.912148, 5.67839, 17.3622)
 [node name="SdiperSpawner2" parent="." instance=ExtResource("7_rytu2")]
 transform = Transform3D(-0.959353, 0, -0.282208, 0.0672729, 0.971172, -0.228692, 0.274072, -0.238381, -0.931697, 1.12613, 6.36401, -20.287)
 
-[node name="StoryTeller" type="Node3D" parent="."]
-script = ExtResource("15_up3gc")
+[node name="Storyteller" parent="." instance=ExtResource("15_b1rwd")]
