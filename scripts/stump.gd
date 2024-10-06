@@ -18,5 +18,5 @@ func _process(delta: float) -> void:
 	if timer <= 0 && heart == null:
 		heart = prefab.instantiate()
 		heart.stump = self
-		get_tree().root.add_child(heart)
+		get_parent().add_child(heart)
 		heart.global_position = spawn.global_position

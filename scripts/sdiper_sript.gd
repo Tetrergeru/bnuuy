@@ -18,26 +18,24 @@ var atack_timer = 0
 var missile_timer: float = 3
 var homing_missile = preload("res://prefabs/homing_missile.tscn")  
 
-func _ready() -> void:
-	#area.connect("body_entered", _on_body_enter)
-	pass
+var spawner: SdiperSpawner
 
 func _physics_process(delta: float):
-	atack_timer = max(atack_timer - delta, 0)
-	missile_timer = max(missile_timer - delta, 0)
-	
-	if !player_controller:
-		player_controller = find_player(get_tree().root)
-		
 	if !player_controller:
 		return
+	
+	if global_position.y < -10:
+		deal_damage(1000)
+		
+	atack_timer = max(atack_timer - delta, 0)
+	missile_timer = max(missile_timer - delta, 0)
 	
 	if missile_timer == 0:
 		missile_timer = missile_timeout
 		var instance: HomingMissile = homing_missile.instantiate()
 		instance.player = player_controller
 		instance.global_transform = launcher.global_transform
-		get_tree().root.add_child(instance)
+		get_parent().add_child(instance)
 	
 	var player_pos = player_controller.global_position
 	var self_pos = global_position
@@ -55,16 +53,6 @@ func _physics_process(delta: float):
 	velocity.z = direction.y * speed
 	
 	move_and_slide()
-	
-func find_player(node) -> PlayerController:
-	for ch in node.get_children(true):
-		if ch is PlayerController:
-			return ch
-		else:
-			var found = find_player(ch)
-			if found:
-				return found
-	return null
 
 func atack():
 	state_machine.travel("AtackBlend")
@@ -77,4 +65,5 @@ func atack():
 func deal_damage(damage: float):
 	health -= damage
 	if (health <= 0):
+		spawner.sdiper_killed()
 		queue_free()

@@ -18,7 +18,7 @@ func _on_area_enter(body):
 		body.deal_damage(1)
 	
 func disable():
-	await null
+	await get_tree().process_frame
 	self.collision_mask = 0
 
 func explosion():

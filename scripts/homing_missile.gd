@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		self.collision_mask = 0
 		var instance: Node3D = expolosion.instantiate()
 		instance.global_transform = global_transform
-		get_tree().root.add_child(instance)
+		get_parent().add_child(instance)
 		die_in_secs(2.0)
 
 func die_in_secs(secs: float):

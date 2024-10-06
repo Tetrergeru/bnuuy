@@ -4,6 +4,9 @@ extends Node
 
 var game_scene = preload("res://scenes/main.tscn")
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _process(delta: float) -> void:
 	bnuuy.rotate_y(delta)
 

@@ -17,7 +17,7 @@ var current_point: int = 0
 
 @onready var hearts: HBoxContainer = $Hearts
 var heart = preload("res://prefabs/heart_ui.tscn")
-var health: int = 3
+var health: int = 1
 
 var jump_timer: float = 0
 @export var fire_timeout = 0.2
@@ -27,14 +27,20 @@ func _ready() -> void:
 	update_hearts()
 
 func _process(delta: float) -> void:
+	if health <= 0:
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		return
+		
 	fire_timer = max(fire_timer - delta, 0)
+	if Input.is_action_just_pressed("Esc"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.is_action_pressed("fire") && fire_timer <= 0:
 		fire_timer = fire_timeout
 		var instance: Node3D = missile.instantiate()
 		instance.global_transform = spawn_points[current_point].global_transform
 		instance.rotation.z = camera_pole.rotation.z
 		current_point = (current_point + 1) % 2
-		get_tree().root.add_child(instance)
+		get_parent().add_child(instance)
 		velocity += -instance.global_transform.basis.x * kickback
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -83,8 +89,9 @@ func heal(heal: int):
 	update_hearts()
 
 func update_hearts():
-	if health < 0:
+	if health <= 0:
 		health = 0
+		return
 	var children = hearts.get_children()
 	if children.size() > health:
 		for i in children.size() - health:
